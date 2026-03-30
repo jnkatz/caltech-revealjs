@@ -1,0 +1,217 @@
+# Caltech Revealjs
+
+A [Quarto](https://quarto.org/) format extension for
+[revealjs](https://revealjs.com/) presentations using
+Caltech's visual identity: orange (#FF6A14) headings on a
+cream (#FFF0E7) background, with Cabin, Noto Sans, and
+Source Code Pro fonts.
+
+## Installation
+
+```bash
+quarto add jnkatz/caltech-revealjs
+```
+
+This installs the extension into `_extensions/caltech/` in
+your project directory.
+
+## Usage
+
+Set the format in your `.qmd` YAML header:
+
+```yaml
+---
+title: "Presentation Title"
+subtitle: "Subtitle"
+author: "Author Name"
+institute: "Caltech"
+date: today
+format: caltech-revealjs
+---
+```
+
+That is enough for Markdown-only decks. The extension
+provides the visual theme, layout classes, and the Caltech
+logo (bottom-left on every slide).
+
+If your deck uses R and calls `theme_caltech()` or
+`orange_scheme`, source the helper file once in a hidden
+setup chunk. The helper is not injected automatically.
+
+## Starting A New Deck
+
+For a Markdown-only deck, this is enough:
+
+```yaml
+---
+title: "Presentation Title"
+subtitle: "Subtitle"
+author: "Author Name"
+institute: "Caltech"
+date: today
+format: caltech-revealjs
+---
+```
+
+For a deck that uses R and needs `theme_caltech()` or
+`orange_scheme`, add one hidden setup chunk immediately after
+the YAML:
+
+````qmd
+---
+title: "Presentation Title"
+subtitle: "Subtitle"
+author: "Author Name"
+institute: "Caltech"
+date: today
+format: caltech-revealjs
+---
+
+```{r}
+#| include: false
+#| cache: false
+source("_extensions/caltech/caltech-setup.R")
+```
+````
+
+You can start from `template.qmd` in this repository.
+
+## What's Included
+
+### Visual theme
+
+- **Fonts**: Cabin (headings), Noto Sans (body),
+  Source Code Pro (code) — loaded from Google Fonts
+- **Colors**: orange headings, cream background, orange
+  inline code, alternating-row tables
+- **Slides**: 1280x720 (16:9), GitHub syntax highlighting,
+  slide numbers (current/total)
+
+### Layout classes
+
+| Class | Effect |
+|---|---|
+| `.pull-left` / `.pull-right` | Two columns (47% each) |
+| `.pull-left-3` / `.pull-middle-3` / `.pull-right-3` | Three columns (30% each) |
+| `.left-column` / `.right-column` | Sidebar (20%) + main (75%) |
+| `.left-code` / `.right-plot` | Code (38%) + plot (56%) |
+| `.left-list` / `.right-image` | Text (60%) + image (38%) |
+| `.center` | Center-align content |
+| `.footnote` | Absolute-positioned footnote |
+
+### Callout classes
+
+| Class | Effect |
+|---|---|
+| `.box-2` | Compact inline callout for short prompts or annotations |
+| `.box-4` | Larger callout block for datasets or explanatory notes |
+
+### Slide classes
+
+| Class | Effect |
+|---|---|
+| `{.inverse}` | Orange background, cream text |
+| `{.header_background}` | Orange banner behind heading |
+| `{.hide_logo}` | Hide the Caltech logo |
+
+Speaker notes use Quarto's built-in `::: {.notes}` blocks.
+
+### R integration
+
+For slide decks that use R code and need the Caltech plotting
+helpers, source the helper file once in a hidden setup chunk:
+
+```r
+#| include: false
+#| cache: false
+source("_extensions/caltech/caltech-setup.R")
+```
+
+This provides two R objects:
+
+- **`theme_caltech()`** — a ggplot2 theme matching the
+  slide background and fonts. Parameters:
+  - `background_color` (default `"#FFF0E7"`)
+  - `text_font_size` (default `12`)
+- **`orange_scheme`** — a 6-color orange palette for
+  `bayesplot::color_scheme_set()`
+
+### Default knitr options
+
+The extension sets sensible defaults for R chunks:
+
+| Option | Default |
+|---|---|
+| `echo` | `true` |
+| `cache` | `true` |
+| `fig.width` | `6` |
+| `fig.height` | `3.708` |
+| `fig.retina` | `3` |
+| `fig.align` | `center` |
+| `warning` | `false` |
+| `message` | `false` |
+
+Override any of these per-chunk or in your YAML header.
+
+## Smoke Tests
+
+This repository includes three lightweight render checks:
+
+- `example.qmd` exercises the R helper workflow and the
+  main layout/callout classes.
+- `template.qmd` verifies the starter deck renders cleanly.
+- `tests/no-r-smoke.qmd` verifies the extension works for a
+  deck with no R setup chunk.
+
+Run them all with:
+
+```bash
+bash scripts/smoke-test.sh
+```
+
+Or run them individually with `quarto render`.
+
+## Example
+
+See `example.qmd` for a comprehensive demo of all
+features. Render it with:
+
+```bash
+quarto render example.qmd
+```
+
+## Development Workflow
+
+Treat this repository as the canonical source of truth for
+the theme. If another project vendors `_extensions/caltech`,
+update it from here rather than editing both copies.
+
+Before syncing into another project, run the smoke tests:
+
+```bash
+bash scripts/smoke-test.sh
+```
+
+If you want a single quick check, render the standalone example:
+
+```bash
+quarto render example.qmd
+```
+
+Sync the extension into a consuming project:
+
+```bash
+rsync -a --delete _extensions/caltech/ /path/to/project/_extensions/caltech/
+```
+
+`example.qmd` is a demo and render smoke test. The reusable
+source lives in `_extensions/caltech/`.
+
+## Requirements
+
+- Quarto >= 1.3.0
+- R with ggplot2 (for `theme_caltech()`)
+
+## License
+
+MIT

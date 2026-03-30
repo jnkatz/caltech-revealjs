@@ -1,0 +1,50 @@
+---
+title: "Caltech Revealjs No-R Smoke Test"
+subtitle: "Layout And Theme Coverage"
+author: "Extension Smoke Test"
+institute: "Caltech"
+date: today
+format: caltech-revealjs
+---
+
+## Layout Coverage
+
+:::{.pull-left}
+### Left
+
+- Theme colors
+- Two-column layout
+- Default typography
+:::
+
+:::{.pull-right}
+### Right
+
+:::{.box-2}
+Short callout.
+:::
+
+:::{.box-4}
+Longer callout block for testing the extension without any R dependency.
+:::
+:::
+
+## Slide Classes {.header_background}
+
+Header banner should be orange, with body content pushed down below it.
+
+## Inverse Slide {.inverse}
+
+This verifies the inverse slide colors.
+
+## Hide Logo {.hide_logo}
+
+The logo should be hidden on this slide.
+
+## Notes And Math
+
+Euler's identity: $e^{i\pi} + 1 = 0$.
+
+::: {.notes}
+This note block is included to make sure Quarto notes still work.
+:::

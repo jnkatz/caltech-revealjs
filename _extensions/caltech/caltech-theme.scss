@@ -1,0 +1,217 @@
+/*-- scss:defaults --*/
+
+// Google Fonts — must import explicitly; SCSS variables don't load fonts
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,600;1,600&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Source+Code+Pro:wght@400;700&display=swap');
+
+// Fonts
+$font-family-sans-serif: 'Noto Sans', -apple-system, BlinkMacSystemFont,
+  avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto,
+  segoe ui, arial, sans-serif !default;
+$heading-font-family: 'Cabin', sans-serif !default;
+$heading-font-weight: 600 !default;
+$code-font-family: 'Source Code Pro', Menlo, Consolas, Monaco,
+  Liberation Mono, Lucida Console, monospace !default;
+
+// Font sizes
+$presentation-font-size-root: 20px !default;
+$code-font-size: 0.9em !default;
+$presentation-h1-font-size: 2.75rem !default;
+$presentation-h2-font-size: 2.25rem !default;
+$presentation-h3-font-size: 1.75rem !default;
+
+// Colors — Caltech brand
+$body-color: #000000 !default;
+$heading-color: #FF6A14 !default;
+$presentation-heading-color: #FF6A14 !default;
+$link-color: #FF6A14 !default;
+$bg-color: #FFF0E7 !default;
+$backgroundColor: #FFF0E7 !default;
+$code-color: #FF6A14 !default;
+$code-block-bg: transparent !default;
+
+// Caltech palette variables for reuse
+$caltech-orange: #FF6A14;
+$caltech-cream: #FFF0E7;
+$caltech-peach: #FFE1D0;
+
+// Slide layout
+$presentation-slide-text-align: left !default;
+
+/*-- scss:rules --*/
+
+// Bold text in Caltech orange
+strong { color: $caltech-orange; }
+
+// Links
+a, a > code {
+  color: $caltech-orange;
+  text-decoration: none;
+}
+
+// Slide numbers — bottom-right footer
+.reveal .slide-number {
+  color: $caltech-orange !important;
+  opacity: 1 !important;
+  font-size: 0.9em !important;
+  top: auto !important;
+  bottom: 1em !important;
+  right: 1em !important;
+  left: auto !important;
+}
+
+// Slide padding to match xaringan
+.reveal .slides section {
+  padding: 16px 64px 16px 64px;
+  box-sizing: border-box;
+}
+
+// Blockquotes
+.reveal blockquote {
+  border-left: solid 5px rgba(255, 106, 20, 0.5);
+  padding-left: 1em;
+  background: none;
+  box-shadow: none;
+  font-style: normal;
+  width: auto;
+}
+
+// Tables
+.reveal table {
+  margin: auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+.reveal table thead th {
+  border-bottom: 1px solid #ddd;
+}
+.reveal th, .reveal td {
+  padding: 5px;
+}
+.reveal thead,
+.reveal tfoot,
+.reveal tr:nth-child(even) {
+  background: $caltech-peach;
+}
+
+// DataTables integration
+table.dataTable tbody {
+  background-color: $caltech-cream;
+  color: $body-color;
+}
+table.dataTable.display tbody tr.odd {
+  background-color: $caltech-cream;
+}
+table.dataTable.display tbody tr.even {
+  background-color: $caltech-peach;
+}
+table.dataTable.hover tbody tr:hover,
+table.dataTable.display tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+  color: $body-color;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  color: $body-color !important;
+}
+
+// Inverse slides
+.inverse {
+  background-color: $caltech-orange !important;
+  color: $caltech-cream;
+}
+.inverse h1, .inverse h2, .inverse h3 {
+  color: $caltech-cream;
+}
+
+// List spacing
+.reveal li {
+  margin-bottom: 10px;
+}
+
+// Fix lists inside layout divs — revealjs sets inline-block which breaks stacking
+.reveal .pull-left ul, .reveal .pull-left ol,
+.reveal .pull-right ul, .reveal .pull-right ol,
+.reveal .left-list ul, .reveal .left-list ol,
+.reveal .left-code ul, .reveal .left-code ol {
+  display: block;
+}
+
+// Code line highlight
+.reveal .code-highlight-line,
+.reveal .has-line-highlights .code-line-highlight {
+  background-color: rgba(255, 255, 0, 0.5);
+}
+
+// Images, video, iframes
+.reveal img, .reveal video, .reveal iframe {
+  max-width: 100%;
+}
+
+// Code blocks — constrain to slide width and wrap long lines
+.reveal pre {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+.reveal pre.sourceCode code {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  max-height: none !important;
+  font-size: 16px !important;
+}
+.reveal pre > code.sourceCode > span {
+  white-space: pre-wrap !important;
+  text-indent: 0 !important;
+  padding-left: 0 !important;
+}
+
+// Inline code size
+.reveal code {
+  font-size: 1em;
+}
+
+// Spacing between consecutive code cells on the same slide
+.reveal .cell + .cell {
+  margin-top: 0.5em;
+}
+
+// Code output — match code block styling
+.reveal .cell-output-stdout,
+.reveal .cell-output-stderr {
+  margin-top: 0.75em;
+  border: 1px solid #999;
+  border-radius: 4px;
+  overflow: hidden;
+}
+// Space between code output and the next code block within a cell
+.reveal .cell-output + .code-copy-outer-scaffold,
+.reveal .cell-output + .sourceCode {
+  margin-top: 0.75em;
+}
+.reveal .cell-output-stdout pre,
+.reveal .cell-output-stderr pre,
+.reveal .cell-output-stdout pre code,
+.reveal .cell-output-stderr pre code {
+  font-family: $code-font-family;
+  font-size: 16px !important;
+  color: $body-color;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+}
+
+// Print styles
+@page { margin: 0; }
+@media print {
+  .reveal .slides section {
+    page-break-after: always;
+  }
+}

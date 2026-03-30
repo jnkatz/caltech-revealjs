@@ -1,0 +1,200 @@
+---
+title: "IDS/Ec/PS 126: Applied Data Analysis"
+subtitle: "Example Slides"
+author: "Prof. Jonathan N. Katz"
+institute: "Caltech"
+date: "2026-03-26"
+format: caltech-revealjs
+---
+
+```{r}
+#| include: false
+#| cache: false
+source("_extensions/caltech/caltech-setup.R")
+```
+
+## Key Concepts
+
+- **Bayesian inference** updates prior beliefs with observed data
+- The posterior distribution summarizes what we know after seeing the data
+- Markov Chain Monte Carlo (MCMC) methods allow us to sample from complex posteriors
+- Model checking is essential:
+  - Prior predictive checks
+  - Posterior predictive checks
+  - Cross-validation
+- Always report uncertainty alongside point estimates
+
+## Outline
+
+:::{.left-list}
+1. First topic
+2. Second topic
+3. Third topic
+:::
+
+:::{.right-image}
+![](_extensions/caltech/Caltech_LOGO-Orange_RGB.png){width="75%"}
+:::
+
+## Two-Column Layout
+
+:::{.pull-left}
+### Left Column
+
+- Bullet point one
+- Bullet point two
+- **Bold text** in Caltech orange
+:::
+
+:::{.pull-right}
+### Right Column
+
+Some code:
+
+```r
+library(tidyverse)
+
+mtcars |>
+  group_by(cyl) |>
+  summarize(mpg = mean(mpg))
+```
+:::
+
+## Tables
+
+| Variable | Mean | SD |
+|----------|-----:|---:|
+| mpg | 20.09 | 6.03 |
+| hp | 146.69 | 68.56 |
+| wt | 3.22 | 0.98 |
+
+: Motor Trend car summary statistics
+
+## Inverse Slide {.inverse}
+
+This slide has an inverse color scheme.
+
+- Orange background
+- Cream text
+
+## Header Background Slide {.header_background}
+
+Content below the orange banner header.
+
+- This layout places the heading in a fixed orange banner
+- Content area is pushed down with extra padding
+
+## Callouts And Notes
+
+:::{.box-2}
+Quick teaching prompt or code annotation.
+:::
+
+:::{.box-4}
+Longer explanatory callout for datasets, examples, or setup notes.
+:::
+
+::: {.notes}
+Mention that `.box-2` is meant for short prompts and `.box-4` for fuller callouts.
+:::
+
+## Code Size Utilities
+
+:::{.tiny}
+```r
+# This code block uses the .tiny class (60% size)
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Weight vs MPG", x = "Weight (1000 lbs)",
+       y = "Miles per Gallon", color = "Cylinders") +
+  theme_minimal()
+```
+:::
+
+## Small Code
+
+:::{.small}
+```r
+# This code block uses the .small class (80% size)
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+:::
+
+## Color Utilities
+
+[This text is in Caltech orange]{.base}
+
+[This text is cream colored]{.white .bg-base}
+
+> This is a blockquote with an orange left border.
+
+## Math
+
+Bayes' theorem:
+
+$$
+P(\theta \mid y) = \frac{P(y \mid \theta) \, P(\theta)}{P(y)}
+$$
+
+where $P(\theta \mid y)$ is the posterior distribution.
+
+## R Helpers
+
+```{r}
+#| echo: false
+library(ggplot2)
+
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3) +
+  scale_color_manual(values = orange_scheme[1:3]) +
+  labs(color = "Cylinders") +
+  theme_caltech()
+```
+
+## Incremental Reveals
+
+First point is always visible.
+
+. . .
+
+This appears after a pause.
+
+. . .
+
+And this appears after another pause.
+
+## Three-Column Layout
+
+:::{.pull-left-3}
+### Column 1
+Content for the first column.
+:::
+
+:::{.pull-middle-3}
+### Column 2
+Content for the middle column.
+:::
+
+:::{.pull-right-3}
+### Column 3
+Content for the third column.
+:::
+
+## Footnotes
+
+Some text with a footnote reference.
+
+:::{.footnote}
+This is a footnote positioned at the bottom of the slide.
+:::
+
+## Hide Logo Slide {.hide_logo}
+
+The Caltech logo is hidden on this slide.
+
+## Thank You {.inverse .center}
+
+Questions?

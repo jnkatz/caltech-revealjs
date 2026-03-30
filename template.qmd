@@ -1,0 +1,29 @@
+---
+title: "Presentation Title"
+subtitle: "Subtitle"
+author: "Author Name"
+institute: "Caltech"
+date: today
+format: caltech-revealjs
+---
+
+```{r}
+#| include: false
+#| cache: false
+# Remove this chunk if the deck does not use R.
+source("_extensions/caltech/caltech-setup.R")
+```
+
+## First Slide
+
+Your content here.
+
+## Second Slide
+
+:::{.pull-left}
+Left column content.
+:::
+
+:::{.pull-right}
+Right column content.
+:::

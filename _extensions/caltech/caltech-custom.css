@@ -1,0 +1,163 @@
+/* caltech-custom.css — Layout classes and utilities
+ *
+ * Preserves custom classes from the xaringan Caltech theme,
+ * re-targeted for Quarto revealjs.
+ */
+
+/* === Centering utility === */
+
+.center {
+  text-align: center;
+}
+
+/* === Two-column layouts === */
+
+.pull-left {
+  float: left;
+  width: 47%;
+}
+.pull-right {
+  float: right;
+  width: 47%;
+}
+.pull-right ~ * {
+  clear: both;
+}
+
+/* Sidebar + main (20/75) */
+.left-column {
+  width: 20%;
+  height: 92%;
+  float: left;
+}
+.left-column h2, .left-column h3 {
+  color: #FF6A1499;
+}
+.left-column h2:last-of-type, .left-column h3:last-child {
+  color: #FF6A14;
+}
+.right-column {
+  width: 75%;
+  float: right;
+  padding-top: 1em;
+}
+
+/* Code + plot (38/60) */
+.left-code {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+  margin-top: 0.75em;
+  margin-right: 4%;
+}
+.right-plot {
+  width: 56%;
+  float: right;
+  padding-left: 1%;
+  margin-top: 0.75em;
+}
+
+/* List + image (60/38) */
+.left-list {
+  width: 60%;
+  height: 92%;
+  float: left;
+}
+.right-image {
+  width: 38%;
+  float: right;
+  padding-left: 1%;
+}
+
+/* === Three-column layout === */
+
+.pull-left-3 {
+  float: left;
+  width: 30%;
+  padding: 0 2.5% 0 0;
+}
+.pull-middle-3 {
+  float: left;
+  width: 30%;
+  padding: 0 2.5%;
+}
+.pull-right-3 {
+  float: right;
+  width: 30%;
+  padding: 0 0 0 2.5%;
+}
+.pull-right-3 ~ * {
+  clear: both;
+}
+
+/* === Header background banner === */
+
+.header_background h2 {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #FF6A14;
+  color: #FFF0E7;
+  padding: 2rem 64px 1.5rem 64px;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+.header_background {
+  padding-top: 7rem;
+}
+
+/* === Code size utilities === */
+
+.tiny pre code {
+  font-size: 60% !important;
+}
+.small pre code {
+  font-size: 80% !important;
+}
+
+/* === Color utilities === */
+
+.base { color: #FF6A14; }
+.bg-base { background-color: #FF6A14; }
+.white { color: #FFF0E7; }
+.bg-white { background-color: #FFF0E7; }
+.black { color: #000000; }
+.bg-black { background-color: #000000; }
+
+/* === Footnotes === */
+
+.footnote {
+  position: absolute;
+  bottom: 60px;
+  padding-right: 4em;
+  font-size: 0.9em;
+}
+
+/* === Logo visibility === */
+
+.hide_logo .slide-logo {
+  display: none !important;
+}
+
+/* === Box callout (used in week 3) === */
+
+.box-2 {
+  display: inline-block;
+  background-color: #FFEADf;
+  border-left: 4px solid #FF6A14;
+  padding: 0.4em 0.75em;
+  margin: 0 0 0.75em 0;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.box-4 {
+  background-color: #FFE1D0;
+  border-left: 5px solid #FF6A14;
+  padding: 0.75em 1em;
+  margin: 0.5em 0;
+  border-radius: 4px;
+}
