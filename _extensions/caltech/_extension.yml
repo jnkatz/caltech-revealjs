@@ -11,7 +11,9 @@ contributes:
       height: 720
       margin: 0.04
       slide-number: c/t
-      embed-resources: false
+      embed-resources: true
+      html-math-method: katex
+      self-contained-math: true
       highlight-style: github
       code-line-numbers: false
       code-overflow: wrap

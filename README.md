@@ -34,6 +34,11 @@ That is enough for Markdown-only decks. The extension
 provides the visual theme, layout classes, and the Caltech
 logo (bottom-left on every slide).
 
+By default, the extension renders portable self-contained
+HTML so a single output file can be copied to another machine
+or user account without needing separate asset folders. That
+includes CSS, JavaScript, images, fonts, and math rendering.
+
 If your deck uses R and calls `theme_caltech()` or
 `orange_scheme`, source the helper file once in a hidden
 setup chunk. The helper is not injected automatically.
@@ -76,6 +81,39 @@ source("_extensions/caltech/caltech-setup.R")
 
 You can start from `template.qmd` in this repository.
 
+## Changing The Default
+
+The extension defaults to self-contained output:
+
+```yaml
+format:
+  caltech-revealjs:
+    embed-resources: true
+    html-math-method: katex
+    self-contained-math: true
+```
+
+If you want smaller, non-embedded output for local iteration,
+override those settings in a deck:
+
+```yaml
+format:
+  caltech-revealjs:
+    embed-resources: false
+    html-math-method: mathjax
+    self-contained-math: false
+```
+
+If you prefer MathJax over KaTeX, you can also override just
+the math renderer while keeping self-contained output for the
+rest of the deck:
+
+```yaml
+format:
+  caltech-revealjs:
+    html-math-method: mathjax
+```
+
 ## What's Included
 
 ### Visual theme
@@ -85,7 +123,8 @@ You can start from `template.qmd` in this repository.
 - **Colors**: orange headings, cream background, orange
   inline code, alternating-row tables
 - **Slides**: 1280x720 (16:9), GitHub syntax highlighting,
-  slide numbers (current/total)
+  slide numbers (current/total), self-contained HTML output
+  with KaTeX-rendered math by default
 
 ### Layout classes
 
