@@ -20,8 +20,6 @@ contributes:
       title-slide-attributes:
         data-background-color: "#FFF0E7"
       date-format: "MMMM D, YYYY"
-      template-partials:
-        - title-slide.html
       filters:
         - logo-inject.lua
       knitr:

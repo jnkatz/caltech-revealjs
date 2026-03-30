@@ -10,6 +10,44 @@
   text-align: center;
 }
 
+/* === Title slide === */
+
+#title-slide.quarto-title-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+#title-slide.quarto-title-block .title,
+#title-slide.quarto-title-block .subtitle,
+#title-slide.quarto-title-block .quarto-title-author-name,
+#title-slide.quarto-title-block .quarto-title-affiliation,
+#title-slide.quarto-title-block .date {
+  color: #FF6A14;
+  font-weight: 700;
+}
+
+#title-slide.quarto-title-block .title {
+  margin-bottom: 0.4rem;
+}
+
+#title-slide.quarto-title-block .subtitle {
+  font-size: 2.25rem;
+  margin-bottom: 1.25rem;
+}
+
+#title-slide.quarto-title-block .quarto-title-authors {
+  margin-bottom: 1rem;
+}
+
+#title-slide.quarto-title-block .quarto-title-author-name,
+#title-slide.quarto-title-block .quarto-title-affiliation,
+#title-slide.quarto-title-block .date {
+  font-size: 2rem;
+}
+
 /* === Two-column layouts === */
 
 .pull-left {

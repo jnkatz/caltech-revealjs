@@ -13,6 +13,9 @@ All notable changes to this project will be documented in this file.
 - Moved the no-R smoke deck to the repository root.
 - Updated smoke tests to install the extension into a clean
   temporary project before rendering, matching real usage.
+- Replaced the custom title-slide partial with CSS-only
+  styling of Quarto's default revealjs title slide to avoid
+  cross-version template-partial resolution issues.
 
 ## [1.0.0] - 2026-03-30
 
