@@ -171,6 +171,9 @@ bash scripts/smoke-test.sh
 
 Or run them individually with `quarto render`.
 
+The same smoke tests run in GitHub Actions on pushes, pull
+requests, and manual workflow dispatches.
+
 ## Example
 
 See `example.qmd` for a comprehensive demo of all
@@ -206,6 +209,15 @@ rsync -a --delete _extensions/caltech/ /path/to/project/_extensions/caltech/
 
 `example.qmd` is a demo and render smoke test. The reusable
 source lives in `_extensions/caltech/`.
+
+## Releases
+
+This repository keeps a lightweight release process:
+
+- update `CHANGELOG.md` when the extension behavior changes
+- keep `_extensions/caltech/_extension.yml` versioned
+- tag stable points in `main` with release versions such as
+  `v1.0.0`
 
 ## Requirements
 
