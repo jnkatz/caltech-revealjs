@@ -8,12 +8,22 @@ Source Code Pro fonts.
 
 ## Installation
 
+This repository is currently private, so install it from a
+local path rather than from the GitHub `owner/repo` shortcut:
+
 ```bash
-quarto add jnkatz/caltech-revealjs
+quarto add ~/Dropbox/software/caltech-revealjs
 ```
 
 This installs the extension into `_extensions/caltech/` in
 your project directory.
+
+If the repository is made public later, this shorter command
+will also work:
+
+```bash
+quarto add jnkatz/caltech-revealjs
+```
 
 ## Usage
 

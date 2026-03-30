@@ -9,6 +9,8 @@ All notable changes to this project will be documented in this file.
   presentations remain fully portable in a single file.
 - Documented how to override the self-contained and math
   defaults per deck.
+- Corrected installation docs for the current private-repo
+  distribution workflow.
 
 ## [1.0.0] - 2026-03-30
 
