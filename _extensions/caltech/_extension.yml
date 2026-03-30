@@ -21,7 +21,7 @@ contributes:
         data-background-color: "#FFF0E7"
       date-format: "MMMM D, YYYY"
       template-partials:
-        - _extensions/caltech/title-slide.html
+        - title-slide.html
       filters:
         - logo-inject.lua
       knitr:
