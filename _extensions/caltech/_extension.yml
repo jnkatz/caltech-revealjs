@@ -38,4 +38,3 @@ contributes:
           warning: false
           message: false
           tidy: false
-          fig.showtext: true
