@@ -10,6 +10,9 @@ All notable changes to this project will be documented in this file.
 - Documented how to override the self-contained and math
   defaults per deck.
 - Updated installation docs for public GitHub distribution.
+- Moved the no-R smoke deck to the repository root so CI
+  smoke tests use the same template-partial resolution path
+  as the main example decks.
 
 ## [1.0.0] - 2026-03-30
 

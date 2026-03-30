@@ -199,7 +199,7 @@ This repository includes three lightweight render checks:
 - `example.qmd` exercises the R helper workflow and the
   main layout/callout classes.
 - `template.qmd` verifies the starter deck renders cleanly.
-- `tests/no-r-smoke.qmd` verifies the extension works for a
+- `no-r-smoke.qmd` verifies the extension works for a
   deck with no R setup chunk.
 
 Run them all with:

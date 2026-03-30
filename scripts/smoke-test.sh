@@ -8,4 +8,4 @@ cd "$repo_root"
 
 quarto render example.qmd
 quarto render template.qmd
-quarto render tests/no-r-smoke.qmd
+quarto render no-r-smoke.qmd
