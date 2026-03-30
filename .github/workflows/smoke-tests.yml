@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -26,7 +26,7 @@ jobs:
 
       - name: Install R dependencies
         run: |
-          Rscript -e 'install.packages("ggplot2", repos = "https://cloud.r-project.org")'
+          Rscript -e 'install.packages(c("ggplot2", "knitr", "rmarkdown"), repos = "https://cloud.r-project.org")'
 
       - name: Run smoke tests
         run: bash scripts/smoke-test.sh
