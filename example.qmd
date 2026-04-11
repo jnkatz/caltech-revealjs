@@ -154,6 +154,20 @@ ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
   theme_caltech()
 ```
 
+## Image Carousel Helper
+
+```{r}
+#| echo: false
+#| results: asis
+carousel_images <- rep("_extensions/caltech/Caltech_LOGO-Orange_RGB.png", 2)
+caltech_image_carousel(
+  carousel_images,
+  captions = c("First image", "Second image"),
+  alt = c("Caltech logo", "Caltech logo"),
+  interval = 2000
+)
+```
+
 ## Incremental Reveals
 
 First point is always visible.

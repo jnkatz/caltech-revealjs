@@ -199,3 +199,73 @@
   margin: 0.5em 0;
   border-radius: 4px;
 }
+
+/* === Image carousel === */
+
+.caltech-carousel {
+  width: 100%;
+  height: 420px;
+  margin-top: 0.6rem;
+}
+
+.caltech-carousel__stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.caltech-carousel__item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin: 0;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.caltech-carousel__item.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.caltech-carousel__item img {
+  max-width: 95%;
+  object-fit: contain;
+  background: #FFFFFF;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+}
+
+.caltech-carousel__item figcaption {
+  color: #FF6A14;
+  font-size: 0.8em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.caltech-carousel__dots {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.caltech-carousel__dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  padding: 0;
+  border: 1px solid #FF6A14;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.caltech-carousel__dot.is-active {
+  background: #FF6A14;
+}

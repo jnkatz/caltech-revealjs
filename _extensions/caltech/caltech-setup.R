@@ -1,6 +1,25 @@
 # Caltech Revealjs Extension — R setup
-# Source this from an R setup chunk when using theme_caltech()
-# or orange_scheme in slide decks.
+# Source this from an R setup chunk when using theme_caltech(),
+# orange_scheme, or other Caltech slide helpers.
+
+`%||%` <- function(x, y) {
+  if (is.null(x)) y else x
+}
+
+caltech_current_file <- function(default = "caltech-setup.R") {
+  frames <- sys.frames()
+  for (frame in rev(frames)) {
+    file <- frame$ofile
+    if (!is.null(file) && file.exists(file)) {
+      return(normalizePath(file))
+    }
+  }
+
+  normalizePath(default, mustWork = FALSE)
+}
+
+caltech_setup_path <- caltech_current_file()
+source(file.path(dirname(caltech_setup_path), "_common.R"))
 
 caltech_font_or <- function(preferred, fallback) {
   if (!requireNamespace("systemfonts", quietly = TRUE)) {
