@@ -16,6 +16,8 @@ All notable changes to this project will be documented in this file.
 - Replaced the custom title-slide partial with CSS-only
   styling of Quarto's default revealjs title slide to avoid
   cross-version template-partial resolution issues.
+- Added `caltech_image_carousel()` for reusable revealjs image
+  carousels without `slickR` or htmlwidget dependencies.
 
 ## [1.0.0] - 2026-03-30
 

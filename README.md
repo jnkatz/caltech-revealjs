@@ -39,9 +39,10 @@ HTML so a single output file can be copied to another machine
 or user account without needing separate asset folders. That
 includes CSS, JavaScript, images, fonts, and math rendering.
 
-If your deck uses R and calls `theme_caltech()` or
-`orange_scheme`, source the helper file once in a hidden
-setup chunk. The helper is not injected automatically.
+If your deck uses R and calls `theme_caltech()`,
+`orange_scheme`, or `caltech_image_carousel()`, source the
+helper file once in a hidden setup chunk. The helper is not
+injected automatically.
 
 ## Starting A New Deck
 
@@ -58,9 +59,9 @@ format: caltech-revealjs
 ---
 ```
 
-For a deck that uses R and needs `theme_caltech()` or
-`orange_scheme`, add one hidden setup chunk immediately after
-the YAML:
+For a deck that uses R and needs `theme_caltech()`,
+`orange_scheme`, or `caltech_image_carousel()`, add one
+hidden setup chunk immediately after the YAML:
 
 ````qmd
 ---
@@ -157,8 +158,8 @@ Speaker notes use Quarto's built-in `::: {.notes}` blocks.
 
 ### R integration
 
-For slide decks that use R code and need the Caltech plotting
-helpers, source the helper file once in a hidden setup chunk:
+For slide decks that use R code and need the Caltech helpers,
+source the helper file once in a hidden setup chunk:
 
 ```r
 #| include: false
@@ -166,7 +167,7 @@ helpers, source the helper file once in a hidden setup chunk:
 source("_extensions/caltech/caltech-setup.R")
 ```
 
-This provides two R objects:
+This provides these R objects:
 
 - **`theme_caltech()`** — a ggplot2 theme matching the
   slide background and fonts. Parameters:
@@ -174,6 +175,27 @@ This provides two R objects:
   - `text_font_size` (default `12`)
 - **`orange_scheme`** — a 6-color orange palette for
   `bayesplot::color_scheme_set()`
+- **`caltech_image_carousel()`** — an as-is HTML image
+  carousel for revealjs slides. It preserves the order of the
+  `images` vector unless `sort_key` is supplied, starts on the
+  first image, resets on slide entry, and has no `slickR` or
+  htmlwidget dependency.
+
+Example:
+
+```r
+#| echo: false
+#| results: asis
+images <- list.files("book-images", pattern = "\\.jpe?g$", full.names = TRUE)
+years <- as.integer(gsub("\\D", "", basename(images)))
+caltech_image_carousel(
+  images,
+  id = "book-carousel",
+  captions = years,
+  alt = paste("Book cover from", years),
+  sort_key = years
+)
+```
 
 ### Default knitr options
 
