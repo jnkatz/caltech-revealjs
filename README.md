@@ -126,6 +126,11 @@ format:
 - **Slides**: 1280x720 (16:9), GitHub syntax highlighting,
   slide numbers (current/total), self-contained HTML output
   with KaTeX-rendered math by default
+- **Fragments**: top-level bullet lists display incrementally
+  by default; nested lists keep their authored behavior. On
+  `.pull-left` / `.pull-right` slides with a figure in the
+  right column, the first left-column bullet is visible when
+  the slide opens.
 
 ### Layout classes
 
@@ -135,7 +140,6 @@ format:
 | `.pull-left-3` / `.pull-middle-3` / `.pull-right-3` | Three columns (30% each) |
 | `.left-column` / `.right-column` | Sidebar (20%) + main (75%) |
 | `.left-code` / `.right-plot` | Code (38%) + plot (56%) |
-| `.left-list` / `.right-image` | Text (60%) + image (38%) |
 | `.center` | Center-align content |
 | `.footnote` | Absolute-positioned footnote |
 

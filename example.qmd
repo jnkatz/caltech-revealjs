@@ -26,13 +26,13 @@ source("_extensions/caltech/caltech-setup.R")
 
 ## Outline
 
-:::{.left-list}
+:::{.pull-left}
 1. First topic
 2. Second topic
 3. Third topic
 :::
 
-:::{.right-image}
+:::{.pull-right}
 ![](_extensions/caltech/Caltech_LOGO-Orange_RGB.png){width="75%"}
 :::
 

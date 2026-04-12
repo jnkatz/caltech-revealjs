@@ -3,5 +3,6 @@
 *_cache/
 *.html
 !_extensions/
+!_extensions/caltech/caltech-fragments.html
 
 **/*.quarto_ipynb

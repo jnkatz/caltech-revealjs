@@ -1,0 +1,69 @@
+<style>
+.reveal .caltech-top-level-fragment:not(.visible) {
+  visibility: hidden;
+}
+</style>
+
+<script>
+(function () {
+  function markTopLevelBulletItems() {
+    var slides = document.querySelectorAll(".reveal .slides section");
+
+    slides.forEach(function (slide) {
+      var fragments = [];
+      var candidates = slide.querySelectorAll("ul > li, .fragment, .caltech-top-level-fragment");
+      var firstVisibleLeftBullet = null;
+      var rightFigure = slide.querySelector(".pull-right img");
+      var leftList = rightFigure ? slide.querySelector(".pull-left ul") : null;
+
+      if (leftList && !leftList.closest("li")) {
+        firstVisibleLeftBullet = Array.prototype.find.call(leftList.children, function (item) {
+          return item.tagName === "LI";
+        });
+      }
+
+      candidates.forEach(function (item) {
+        if (item.closest("section") !== slide) {
+          return;
+        }
+
+        if (item.tagName === "LI") {
+          if (item.parentElement.tagName === "UL" && !item.parentElement.closest("li")) {
+            if (item === firstVisibleLeftBullet) {
+              item.classList.remove("fragment");
+              item.removeAttribute("data-fragment-index");
+              return;
+            }
+
+            item.classList.add("fragment");
+            fragments.push(item);
+          }
+          return;
+        }
+
+        if (item.classList.contains("caltech-top-level-fragment")) {
+          item.classList.add("fragment");
+        }
+
+        if (!item.closest("li")) {
+          fragments.push(item);
+        }
+      });
+
+      fragments.forEach(function (item, index) {
+        item.setAttribute("data-fragment-index", index);
+      });
+    });
+
+    if (window.Reveal && typeof window.Reveal.sync === "function") {
+      window.Reveal.sync();
+    }
+  }
+
+  markTopLevelBulletItems();
+
+  if (window.Reveal && typeof window.Reveal.on === "function") {
+    window.Reveal.on("ready", markTopLevelBulletItems);
+  }
+})();
+</script>

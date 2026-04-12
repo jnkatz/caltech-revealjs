@@ -19,6 +19,7 @@ contributes:
       code-overflow: wrap
       title-slide-attributes:
         data-background-color: "#FFF0E7"
+      include-after-body: caltech-fragments.html
       date-format: "MMMM D, YYYY"
       filters:
         - logo-inject.lua

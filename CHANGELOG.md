@@ -18,6 +18,10 @@ All notable changes to this project will be documented in this file.
   cross-version template-partial resolution issues.
 - Added `caltech_image_carousel()` for reusable revealjs image
   carousels without `slickR` or htmlwidget dependencies.
+- Added default incremental display for top-level bullet lists
+  while preserving nested-list behavior; on `.pull-left` /
+  `.pull-right` slides with a right-column figure, the first
+  left-column bullet is visible on slide entry.
 
 ## [1.0.0] - 2026-03-30
 
