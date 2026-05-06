@@ -29,7 +29,7 @@ jobs:
 
       - name: Install R dependencies
         run: |
-          Rscript -e 'install.packages(c("ggplot2", "knitr", "rmarkdown"), repos = "https://cloud.r-project.org")'
+          Rscript -e 'repos <- Sys.getenv("RSPM", "https://cloud.r-project.org"); pkgs <- c("ggplot2", "knitr", "rmarkdown"); install.packages(pkgs, repos = repos); stopifnot(all(vapply(pkgs, requireNamespace, logical(1), quietly = TRUE)))'
 
       - name: Run smoke tests
         run: bash scripts/smoke-test.sh
