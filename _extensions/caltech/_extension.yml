@@ -22,6 +22,7 @@ contributes:
       include-after-body: caltech-fragments.html
       date-format: "MMMM D, YYYY"
       filters:
+        - fragment-options.lua
         - logo-inject.lua
       knitr:
         opts_chunk:

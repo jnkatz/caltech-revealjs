@@ -1,0 +1,17 @@
+---
+title: "Incremental False Smoke Test"
+author: "Jonathan N. Katz"
+institute: "Caltech"
+date: today
+format:
+  caltech-revealjs:
+    incremental: false
+---
+
+## Bullets Should Not Reveal Incrementally
+
+- First bullet.
+
+- Second bullet.
+
+- Third bullet.

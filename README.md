@@ -115,6 +115,15 @@ format:
     html-math-method: mathjax
 ```
 
+The extension makes top-level bullet lists incremental by
+default. To show all bullets immediately, set:
+
+```yaml
+format:
+  caltech-revealjs:
+    incremental: false
+```
+
 ## What's Included
 
 ### Visual theme
@@ -127,10 +136,10 @@ format:
   slide numbers (current/total), self-contained HTML output
   with KaTeX-rendered math by default
 - **Fragments**: top-level bullet lists display incrementally
-  by default; nested lists keep their authored behavior. On
-  `.pull-left` / `.pull-right` slides with a figure in the
-  right column, the first left-column bullet is visible when
-  the slide opens.
+  by default unless `incremental: false`; nested lists keep
+  their authored behavior. On `.pull-left` / `.pull-right`
+  slides with a figure in the right column, the first
+  left-column bullet is visible when the slide opens.
 
 ### Layout classes
 

@@ -1,12 +1,31 @@
 <style>
-.reveal .caltech-top-level-fragment:not(.visible) {
+html:not(.caltech-no-incremental) .reveal .caltech-top-level-fragment:not(.visible) {
   visibility: hidden;
 }
 </style>
 
 <script>
 (function () {
+  function incrementalDisabled() {
+    if (
+      window.CaltechRevealjs &&
+      window.CaltechRevealjs.incremental === false
+    ) {
+      return true;
+    }
+
+    if (!window.Reveal || typeof window.Reveal.getConfig !== "function") {
+      return false;
+    }
+
+    return window.Reveal.getConfig().incremental === false;
+  }
+
   function markTopLevelBulletItems() {
+    if (incrementalDisabled()) {
+      return;
+    }
+
     var slides = document.querySelectorAll(".reveal .slides section");
 
     slides.forEach(function (slide) {

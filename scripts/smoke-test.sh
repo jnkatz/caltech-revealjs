@@ -11,9 +11,11 @@ trap 'rm -rf "$tmpdir"' EXIT
 cp "$repo_root"/example.qmd "$tmpdir"/
 cp "$repo_root"/template.qmd "$tmpdir"/
 cp "$repo_root"/no-r-smoke.qmd "$tmpdir"/
+cp "$repo_root"/incremental-false-smoke.qmd "$tmpdir"/
 
 cd "$tmpdir"
 
 quarto render example.qmd
 quarto render template.qmd
 quarto render no-r-smoke.qmd
+quarto render incremental-false-smoke.qmd
